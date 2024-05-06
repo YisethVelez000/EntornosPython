@@ -1,16 +1,17 @@
-# Import packages
+# Importamos las bibliotecas necesarias para el proyecto de dash
 from dash import Dash, html, dash_table,dcc
 import pandas as pd
 import plotly.express as px 
 import dash_bootstrap_components as dbc
 
-# Incorporate data
+
+# Incorporamos la data del api de robos 
 df = pd.read_json("https://www.datos.gov.co/resource/9vha-vh9n.json?")
 
-# Initialize the app
+# Iniciamos la app
 app = Dash(__name__,external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-# App layout
+# Layout app
 app.layout = html.Div([
     dbc.Row(
         [
@@ -25,6 +26,6 @@ app.layout = html.Div([
     ])    
 ])
 
-# Run the app
+# Corremos la app 
 if __name__ == '__main__':
     app.run(debug=True)
